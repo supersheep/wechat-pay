@@ -1,0 +1,29 @@
+{
+  "name": "wechat-pay",
+  "version": "0.1.0",
+  "description": "wechat payment api for document v3.3.5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/supersheep/wechat-pay.git"
+  },
+  "keywords": [
+    "wechat",
+    "payment"
+  ],
+  "author": "spud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supersheep/wechat-pay/issues"
+  },
+  "homepage": "https://github.com/supersheep/wechat-pay",
+  "dependencies": {
+    "underscore": "^1.7.0",
+    "sha1": "^1.1.0",
+    "MD5": "^1.2.1",
+    "xml2js": "^0.4.4"
+  }
+}

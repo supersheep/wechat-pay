@@ -45,7 +45,7 @@ WeixinJSBridge.invoke('getBrandWCPayRequest', payargs, function(res){
 ```
 来呼出微信的支付界面
 
-## 接收微信付款请求
+## 接收微信付款确认请求
 ```javascript
 var middleware = require('wechat-pay').middleware;
 app.use(middleware.getNotify(initConfig).done(function(message, req, res, next) {

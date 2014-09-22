@@ -67,6 +67,7 @@ app.use(middleware.getNotify(initConfig).done(function(message, req, res, next) 
    * res.reply(new Error('...'))
    */
 }));
+```
 
 ## 退个款
 

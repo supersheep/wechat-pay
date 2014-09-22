@@ -103,5 +103,5 @@ payment.downloadBill({
 
 在回调的Error上的以name做了区分，有需要可以拿来做判断
 
-  ProtocolError 协议错误，看看有没有必须要传的参数没传
-  BusinessError 业务错误，可以从返回的data里面看看错误细节
+* ProtocolError 协议错误，看看有没有必须要传的参数没传
+* BusinessError 业务错误，可以从返回的data里面看看错误细节

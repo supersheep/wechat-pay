@@ -4,3 +4,4 @@ coverage.html
 example
 .DS_Store
 coverage
+*.pdf

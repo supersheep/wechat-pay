@@ -36,8 +36,8 @@ payment.getBrandWCPayRequestParams(order, function(err, payargs){
 ```javascript
 WeixinJSBridge.invoke('getBrandWCPayRequest', payargs, function(res){
   if(res.err_msg == "get_brand_wcpay_request:ok"){
-    alert("支付成功，正在跳转");
-    location.href = "/orders"
+    alert("支付成功");
+    // 这里可以跳转到订单完成页面向用户展示
   }else{
     alert("支付失败，请重试");
   }

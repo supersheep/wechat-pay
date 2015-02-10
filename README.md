@@ -48,7 +48,7 @@ WeixinJSBridge.invoke('getBrandWCPayRequest', payargs, function(res){
 ## 接收微信付款确认请求
 ```javascript
 var middleware = require('wechat-pay').middleware;
-app.use('<notifyUrl>', middleware.getNotify(initConfig).done(function(message, req, res, next) {
+app.use('<notifyUrl>', middleware(initConfig).getNotify().done(function(message, req, res, next) {
   var openid = message.openid;
   var order_id = message.out_trade_no;
   var attach = {};

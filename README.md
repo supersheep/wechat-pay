@@ -19,7 +19,7 @@ var payment = new Payment(initConfig);
 var order = {
   body: '吮指原味鸡 * 1',
   attach: '{"部位":"三角"}',
-  out_trade_no: 'kfc001',
+  out_trade_no: 'kfc' + (+new Date),
   total_fee: 10 * 100,
   spbill_create_ip: req.ip,
   openid: req.user.openid,
@@ -30,6 +30,11 @@ payment.getBrandWCPayRequestParams(order, function(err, payargs){
   res.json(payargs);
 });
 ```
+
+注：
+1. 页面的路径需要位于`支付授权目录`下
+2. 由于每次呼出支付界面，无论用户是否支付成功，out_trade_no 都会失效（OUT_TRADE_NO_USED），所以这里使用timestamp保证每次的id不同。业务逻辑中应该自行维护之
+
 
 前端通过
 

@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/supersheep/wechat-pay",
   "dependencies": {
-    "MD5": "^1.2.1",
+    "md5": "^2.0.0",
     "request": "^2.45.0",
     "sha1": "^1.1.0",
     "underscore": "^1.7.0",

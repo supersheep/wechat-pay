@@ -90,6 +90,82 @@ payment.refund({
 });
 ```
 
+### 接收退款确认请求
+
+```javascript
+var middleware = require('wechat-pay').middleware;
+app.use('<notifyUrl>', middleware(initConfig).getRefundNotify().done(function(message, req, res, next) {
+  var openid = message.openid;
+  var refund_order_id = message.out_refund_no;
+  var order_id = message.out_trade_no;
+  var attach = {};
+  try{
+   attach = JSON.parse(message.attach);
+  }catch(e){}
+
+  /**
+   * 查询订单，在自己系统里把订单标为已处理
+   * 如果订单之前已经处理过了直接返回成功
+   */
+  res.reply('success');
+
+  /**
+   * 有错误返回错误，不然微信会在一段时间里以一定频次请求你
+   * res.reply(new Error('...'))
+   */
+}));
+```
+
+## 发红包
+
+```javascript
+payment.sendRedPacket({
+  mch_billno: 'kfc002',
+  send_name: '肯德基',
+  re_openid: '',
+  total_amount: 10 * 100,
+  total_num: 1,
+  wishing: '祝多多吃鸡',
+  client_ip: '',
+  act_name: '吃鸡大奖赛',
+  remark: '记得吐骨头',
+  scene_id: 'PRODUCT_1'
+}, (err, result) => {
+  /**
+   * 微信收到正确的请求后会给用户发红包，用户不必关注公众号也能收到。
+   * 红包没有通知回调，有需要的话标记订单状态，和有err的时候记录一下以便排查
+   */
+  });
+});
+```
+
+### 查询红包状态
+
+```javascript
+payment.redPacketQuery({
+  mch_billno: 'kfc002'
+}, (err, result) => {
+  /**
+   * 根据状态相应处理订单
+   */
+});
+```
+
+## 企业付款
+
+```javascript
+payment.transfers({
+  partner_trade_no: 'kfc003',
+  openid: '',
+  check_name: 'NO_CHECK',
+  amount: 10 * 100,
+  desc: '',
+  spbill_create_ip: ''
+}, (err, result) => {
+  // 根据微信文档，当返回错误码为“SYSTEMERROR”时，一定要使用原单号重试，否则可能造成重复支付等资金风险。
+});
+```
+
 ## 查询历史订单
 
 ```javascript

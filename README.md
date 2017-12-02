@@ -29,6 +29,9 @@ var order = {
 payment.getBrandWCPayRequestParams(order, function(err, payargs){
   res.json(payargs);
 });
+
+// 也可以使用`async/await`形式
+// let payargs = await payment.getBrandWCPayRequestParams(order)
 ```
 
 注：

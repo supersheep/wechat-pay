@@ -1,6 +1,6 @@
 {
   "name": "@jabawocky/wechat-pay",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "wechat payment api for document v3.3.5",
   "main": "index.js",
   "scripts": {

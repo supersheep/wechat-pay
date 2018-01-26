@@ -1,3 +1,16 @@
+# Folked
+orig from https://www.npmjs.com/package/wechat-pay
+
+## 动态 config for middle
+```js
+router.all('*', function(req,res, next){
+    ...
+    req.wxpayconfig = initConfig;
+    next();
+})  
+```
+
+
 # 微信支付 for Nodejs
 
 ## 初始化
